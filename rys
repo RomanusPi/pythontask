@@ -1,0 +1,19 @@
+from typing import Callable
+2	pole = lambda a: a**2
+3	obwod =lambda a : 4*a
+4	przekatna =lambda a: a*2**0.5
+5	
+6	def wymus (zapytanie , blad , typ, warunek: Callable= bool):
+7	    while True:
+8	        try:
+9	            pobrana = typ (input(zapytanie))
+10	        except ValueError:
+11	            pobrana = None
+12	        if pobrana is None or not warunek(pobrana):
+13	            print (blad)
+14	            continue
+15	        return pobrana
+16	
+17	a= wymus ('Podaj dlugosc boku kw: ','wprowadz poprawna wartosc!!', float,
+18	          lambda x:x>0)
+19	print ("co  chcesz obliczyc ?\n[1])pole \n[2] obwod \n[3] dlugosc przekatnej")
